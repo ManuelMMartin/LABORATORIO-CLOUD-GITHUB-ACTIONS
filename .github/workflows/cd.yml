@@ -22,6 +22,7 @@ jobs:
         run: |
           git config --global user.name "ManuelMMartin"
           git config --global user.email "manuel.mz.mn@gmail.com"
+          git config --global credential.helper store
 
       - name: Deploy
         env:
