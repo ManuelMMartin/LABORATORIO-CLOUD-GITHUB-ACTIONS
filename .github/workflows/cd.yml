@@ -1,9 +1,9 @@
-name: Continuos Deployment workflow
+name: Continuous Deployment workflow
 
 on:
   push:
     branches:
-    - master
+      - master
 
 jobs:
   cd:
@@ -11,9 +11,17 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
+
       - name: Install
         run: npm install
+
       - name: Build
         run: npm run build
+
+      - name: Configure Git
+        run: |
+          git config --global user.name "ManuelMMartin"
+          git config --global user.email "manuel.mz.mn@gmail.com"
+
       - name: Deploy
         run: npm run deploy
